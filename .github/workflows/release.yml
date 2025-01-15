@@ -1,0 +1,11 @@
+name: Java Release CI
+
+on: workflow_dispatch
+
+jobs:
+  release:
+    if: github.actor == github.event.repository.owner.login
+    uses: ./.github/workflows/build-and-publish.yml
+    with:
+      deploy-profile: release
+    secrets: inherit
